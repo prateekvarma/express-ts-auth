@@ -53,4 +53,9 @@ router.get('/', (req: Request, res: Response) => {
   }
 });
 
+router.get('/logout', (req: Request, res: Response) => {
+  req.session = undefined; // this sets the login cookie to expire, i.e. logout
+  res.redirect('/');
+});
+
 export { router };
